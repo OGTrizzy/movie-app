@@ -1,13 +1,18 @@
 import type { Movie } from '../types/movie'
 import { tmdb } from '../lib/tmdb'
+import { useNavigate } from 'react-router-dom'
 
 interface MovieCardProps {
     movie: Movie
 }
 
 export function MovieCard({ movie }: MovieCardProps) {
+    const navigate = useNavigate()
+    
     return (
-        <div className="group relative bg-zinc-900 rounded-xl overflow-hidden hover:scale-105 transition-transform duration-300 cursor-pointer">
+        <div
+        onClick={() => navigate(`/movie/${movie.id}`)} 
+        className="group relative bg-zinc-900 rounded-xl overflow-hidden hover:scale-105 transition-transform duration-300 cursor-pointer">
             <div className="relative">
                 <img
                     src={tmdb.getImageUrl(movie.poster_path || '')}
