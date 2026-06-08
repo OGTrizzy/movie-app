@@ -49,6 +49,7 @@ export default function Header() {
                     <nav className="flex gap-6 text-sm font-medium">
                         <a href="/" className="hover:text-red-500 transition-colors">Popular</a>
                         <a href="/top-rated" className="hover:text-red-500 transition-colors">Top Rated</a>
+                        <a href="/watchlist" className="hover:text-red-500 transition-colors">Watchlist</a>
                     </nav>
                 </div>
             </div>
