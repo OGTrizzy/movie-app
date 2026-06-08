@@ -4,5 +4,5 @@ import tailwindcss from '@tailwindcss/vite'
 
 export default defineConfig({
   plugins: [react(), tailwindcss()],
-  base: '/movie-app/',   // change this when deploying to a different path
+  base: '/',   // change this when deploying to a different path
 })
