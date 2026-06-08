@@ -3,6 +3,7 @@ import { useSearchMovies } from '../hooks/useSearchMovies'
 import { MovieCard } from '../components/MovieCard'
 import type { Movie } from '../types/movie'
 import { useSearchParams } from 'react-router-dom'
+import MovieCardSkeleton from '../components/MovieCardSkeleton'
 
 export default function Home() {
     const [searchParams] = useSearchParams()
@@ -18,8 +19,16 @@ export default function Home() {
 
     if (isLoading) {
         return (
-            <div className="flex justify-center items-center h-96">
-                <p className="text-xl">Loading...</p>
+            <div>
+                <div className="flex justify-center items-center h-96">
+                    <p className="text-xl">Loading...</p>
+                </div>
+
+                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-6 mt-6">
+                    {[...Array(12)].map((_, i) => (
+                        <MovieCardSkeleton key={i} />
+                    ))}
+                </div>
             </div>
         )
     }
