@@ -18,5 +18,18 @@ export const tmdb = {
       throw new Error(`TMDB API error: ${response.status}`);
     }
     return response.json();
+  },
+
+  fetchTV: async (endpoint: string) => {
+    const response = await fetch(`${BASE_URL}${endpoint}`, {
+        headers: {
+            'Authorization': `Bearer ${API_TOKEN}`,
+            'Content-Type': 'application/json',
+        },
+    });
+    if (!response.ok) {
+        throw new Error(`TMDB API error: ${response.status}`);
+    }
+    return response.json();
   }
 };

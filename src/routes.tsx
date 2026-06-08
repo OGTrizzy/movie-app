@@ -3,6 +3,7 @@ import Home from './pages/Home'
 import MovieDetails from './pages/MovieDetails'
 import TopRated from './pages/TopRated'
 import Watchlist from './pages/Watchlist'
+import PopularTV from './pages/PopularTV'
 
 export default function AppRoutes() {
     return (
@@ -10,6 +11,7 @@ export default function AppRoutes() {
             <Route path="/" element={<Home />} />
             <Route path="/movie/:id" element={<MovieDetails />} />
             <Route path="/top-rated" element={<TopRated />} />
+            <Route path="/tv" element={<PopularTV />} />
             <Route path="/watchlist" element={<Watchlist />} />
             {/* Add more routes here as needed */}
         </Routes>

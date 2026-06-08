@@ -7,7 +7,7 @@ import MovieCardSkeleton from '../components/MovieCardSkeleton'
 export default function TopRated() {
     const { data, isLoading, error } = useQuery({
         queryKey: ['topRatedMovies'],
-        queryFn: () => tmdb.fetch('/movie/top_rated?language=nb-NO'),
+        queryFn: () => tmdb.fetch('/movie/top_rated'),
     })
 
     if (isLoading) {
