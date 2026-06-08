@@ -1,6 +1,8 @@
 import type { Movie } from '../types/movie'
 import { tmdb } from '../lib/tmdb'
 import { useNavigate } from 'react-router-dom'
+import { Heart } from 'lucide-react'
+import { useWatchlistStore } from '../store/useWatchlistStore'
 
 interface MovieCardProps {
     movie: Movie
@@ -8,6 +10,18 @@ interface MovieCardProps {
 
 export function MovieCard({ movie }: MovieCardProps) {
     const navigate = useNavigate()
+    const { addToWatchlist, removeFromWatchlist, isInWatchlist } = useWatchlistStore()
+
+    const isFavorite = isInWatchlist(movie.id)
+
+    const toggleFavorite = (e: React.MouseEvent) => {
+        e.stopPropagation() //prevent card click
+        if (isFavorite) {
+            removeFromWatchlist(movie.id)
+        } else {
+            addToWatchlist(movie)
+        }
+    }
     
     return (
         <div
@@ -19,7 +33,18 @@ export function MovieCard({ movie }: MovieCardProps) {
                     alt={movie.title}
                     className="w-full aspect-[2/3] object-cover"
                 />
-                <div className="absolute top-2 right-2 bg-black/70 text-xs px-2 py-1 rounded font-mono">
+
+                {/* favorite button */}
+                <button
+                    onClick={toggleFavorite}
+                    className="absolute top-3 right-3 p-2 bg-black/60 hover:bg-black/80 rounded-full transition-all z-10"
+                    >
+                        <Heart 
+                            className={`w-5 h-5 transition-colors ${isFavorite ? 'fill-red-500 text-red-500' : 'text-white'}`}
+                        />
+                    </button>
+
+                <div className="absolute top-2 left-2 bg-black/70 text-xs px-2 py-1 rounded font-mono">
                     {movie.vote_average.toFixed(1)}
                 </div>
             </div>

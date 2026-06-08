@@ -39,7 +39,7 @@ export default function Header() {
                                 type="text"
                                 value={searchQuery}
                                 onChange={(e) => setSearchQuery(e.target.value)}
-                                placeholder="Søk etter filmer eller serier..."
+                                placeholder="Search for movies or shows..."
                                 className="w-full bg-zinc-800 text-white pl-10 py-2.5 rounded-full focus:outline-none focus:ring-2 focus:ring-red-500"
                             />
                             <Search className="absolute left-3.5 top-3 w-5 h-5 text-zinc-400" />
