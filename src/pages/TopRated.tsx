@@ -6,11 +6,7 @@ import { MovieCard } from '../components/MovieCard'
 export default function TopRated() {
     const { data, isLoading, error } = useQuery({
         queryKey: ['topRatedMovies'],
-        queryFn: async () => {
-            const response = await fetch(`${tmdb.baseUrl}/movie/top_rated?api_key=${tmdb.apiKey}`)
-            if (!response.ok) throw new Error('Failed to fetch top rated movies')
-            return response.json()
-        },
+        queryFn: () => tmdb.fetch('/movie/top_rated?language=nb-NO'),
     })
 
     if (isLoading) return <div className="text-center py-20">Loading top rated movies...</div>
