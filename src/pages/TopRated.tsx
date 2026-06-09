@@ -1,7 +1,7 @@
 import { useQuery } from '@tanstack/react-query'
 import { tmdb } from '../lib/tmdb'
 import type { Movie } from '../types/movie'
-import { MovieCard } from '../components/MovieCard'
+import MovieCard from '../components/MovieCard'
 import MovieCardSkeleton from '../components/MovieCardSkeleton'
 
 export default function TopRated() {

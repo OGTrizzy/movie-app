@@ -1,4 +1,4 @@
-import { MovieCard } from '../components/MovieCard'
+import MovieCard from '../components/MovieCard'
 import { useWatchlistStore } from '../store/useWatchlistStore'
 import { Film } from 'lucide-react'
 

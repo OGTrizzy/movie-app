@@ -1,6 +1,6 @@
 import { usePopularMovies } from '../hooks/usePopularMovies'
 import { useSearchMovies } from '../hooks/useSearchMovies'
-import { MovieCard } from '../components/MovieCard'
+import MovieCard from '../components/MovieCard'
 import type { Movie } from '../types/movie'
 import { useSearchParams } from 'react-router-dom'
 import MovieCardSkeleton from '../components/MovieCardSkeleton'
