@@ -1,21 +1,24 @@
 import { Film, Search } from 'lucide-react'
 import { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, useLocation } from 'react-router-dom'
 
 export default function Header() {
     const [searchQuery, setSearchQuery] = useState('')
     const navigate = useNavigate()
+    const location = useLocation()
+
+    const isActive = (path: string) => location.pathname ===path
 
     const handleSearch = (e: React.FormEvent) => {
         e.preventDefault()
         if (searchQuery.trim()) {
             navigate(`/?search=${encodeURIComponent(searchQuery.trim())}`)
+            setSearchQuery('')
         }
     }
 
     const goToHome = () => {
         navigate('/')
-        setSearchQuery('')
     }
 
     return (
@@ -46,11 +49,11 @@ export default function Header() {
                         </div>
                     </form>
 
-                    <nav className="flex gap-6 text-sm font-medium">
-                        <a href="/" className="hover:text-red-500 transition-colors">Movies</a>
-                        <a href="/tv" className="hover:text-red-500 transition-colors">TV Shows</a>
-                        <a href="/top-rated" className="hover:text-red-500 transition-colors">Top Rated</a>
-                        <a href="/watchlist" className="hover:text-red-500 transition-colors">Watchlist</a>
+                    <nav className="flex gap-8 text-sm font-medium">
+                        <a href="/" className={`hover:text-red-500 transition-colors ${isActive('/') ? 'text-red-500' : ''}`}>Movies</a>
+                        <a href="/tv" className={`hover:text-red-500 transition-colors ${isActive('/tv') ? 'text-red-500' : ''}`}>TV Shows</a>
+                        <a href="/top-rated" className={`hover:text-red-500 transition-colors ${isActive('/top-rated') ? 'text-red-500' : ''}`}>Top Rated</a>
+                        <a href="/watchlist" className={`hover:text-red-500 transition-colors ${isActive('/watchlist') ? 'text-red-500' : ''}`}>Watchlist</a>
                     </nav>
                 </div>
             </div>
