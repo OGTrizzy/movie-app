@@ -1,7 +1,7 @@
 import { useQuery } from '@tanstack/react-query'
 import { tmdb } from '../lib/tmdb'
 
-export function useSearchMovies(query: string) {
+export function useSearch(query: string) {
   return useQuery({
     queryKey: ['searchMovies', query],
     queryFn: async () => {
@@ -12,7 +12,7 @@ export function useSearchMovies(query: string) {
 
       return {
         movies: movies.results || [],
-        tv: tv.results || []
+        tvShows: tv.results || []
       }
     },
     enabled: query.trim().length > 2,
