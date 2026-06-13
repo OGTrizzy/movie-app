@@ -1,6 +1,7 @@
 import { BrowserRouter as Router } from 'react-router-dom'
 import Header from './components/Header'
 import AppRoutes from './routes'
+import Footer from './components/Footer'
 
 function App() {
   return (
@@ -10,6 +11,7 @@ function App() {
         <main className="container mx-auto px-4 py-8">
           <AppRoutes />
         </main>
+        <Footer />
       </div>
     </Router>
   )
