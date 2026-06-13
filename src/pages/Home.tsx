@@ -18,7 +18,7 @@ export default function Home() {
     const error = isSearching ? searchResult.error : popularQuery.error
 
 
-    const title  = isSearching ? `search result for "{searchQuery}"` : "Popular Movies"
+    const title  = isSearching ? `search result for "${searchQuery}"` : "Popular Movies"
     
 
     if (isLoading) {
